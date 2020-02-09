@@ -3,7 +3,7 @@
 
 Repose is a library and CLI tool that generates server and client code stubs for RESTful APIs from specification.
 
-It was designed with only Go code in mind, and uses [Jennifer](github.com/dave/jennifer) extensively for more flexibility. However the code is structured in such a way that doesn't limit it to Go code only, so supporting more languages is a possibility but currently I see no reason for it as there are many template-based generators for various languages.
+It was designed with only Go code in mind, and uses [Jennifer](https://github.com/dave/jennifer) extensively for more flexibility. However the code is structured in such a way that doesn't limit it to Go code only, so supporting more languages is a possibility but currently I see no reason for it as there are many template-based generators for various languages.
 
 It is pretty much WIP with probably essential features missing, and there is not a lot of documentation yet along with sparse comments.
 There are also no tests and the codebase also needs a lot of refactoring for better maintainability before adding more features.
