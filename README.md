@@ -44,7 +44,7 @@ Get the library with:
 
 ## Command Line
 
-Documentation for the CLI is available [here](github.com/tamasfe/repose/tree/master/docs/cli)
+Documentation for the CLI is available [here](docs/cli)
 
 ## As a library
 
@@ -60,7 +60,7 @@ The repose CLI works with 3 stages:
 
 If used as a library, you can use the parsers, transformers and generators independently, or even create your own ones by implementing the necessary interfaces.
 
-Documentation for the currently available components is generated from code and is available [in the CLI docs](github.com/tamasfe/repose/tree/master/docs/cli).
+Documentation for the currently available components is generated from code and is available [in the CLI docs](docs/cli).
 
 # Contributing
 
