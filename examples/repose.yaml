@@ -1,0 +1,48 @@
+# Generated config file for Repose, a Go RESTful API code generation tool.
+
+packageName: ""
+filePattern: '{{ .Generator }}-{{ .Target }}.gen.go'
+timestamp: false
+comments: true
+descriptionComments: true
+parsers:
+  openapi3:
+    extensionName: x-repose
+    additionalPropertiesName: AdditionalProperties
+    stripExtension: true
+transformers:
+- name: default
+  options:
+    tags:
+      json:
+      - '{{ .FieldName }}'
+      - omitempty
+generators:
+  go-echo:
+    targets:
+    - server
+    - server-scaffold
+    options:
+      serverName: Server
+      serverImplName: ServerImpl
+      allowNoResponse: true
+      serverPackagePath: "github.com/tamasfe/repose/examples/echo-petstore/src/api"
+      typesPackagePath: ""
+      responsePostfix: HandlerResponse
+      shortScaffoldComments: false
+      serverMiddleware: true
+  go-general:
+    targets:
+    - types
+    - spec
+    options:
+      generateTypeHelpers: true
+      generateGettersAndSetters: true
+      generateMarshalMethods: true
+      expandEnums: true
+  go-stdlib:
+    targets:
+    - client
+    - callbacks
+    options:
+      serverPackagePath: "github.com/tamasfe/repose/examples/echo-petstore/src/api"
