@@ -13,7 +13,7 @@ var verbose bool
 var silent bool
 var noColors bool
 
-var version string
+var version string = "not versioned"
 
 var rootCmd = &cobra.Command{
 	Use:           "repose",

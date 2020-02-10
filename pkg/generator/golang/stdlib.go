@@ -342,6 +342,8 @@ func (s *StdLib) GenerateRequest(ctx context.Context, funcName jen.Code, url jen
 				Id("_bodyData").Op("=").Add(newBuf).Call(jen.Id(dataName)).
 				Line().Line()
 
+			additionalStatements.Id("_req").Op(".").Id("Header").Op(".").Id("Add").Call(jen.Lit("Content-Type"), jen.Lit(p.ContentType)).Line()
+
 		case spec.ParameterTypeCookie:
 			marshalValues.Add(marshalCode).Line()
 
