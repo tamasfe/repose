@@ -363,7 +363,8 @@ func (s *StdLib) GenerateRequest(ctx context.Context, funcName jen.Code, url jen
 			urlCode.Id(urlName).Op("=").Qual("strings", "Replace").Call(jen.Id(urlName), jen.Lit("{"+p.Name+"}"), jen.String().Call(jen.Id(dataName)), jen.Lit(1)).Line()
 		case spec.ParameterTypeQuery:
 			marshalValues.Add(marshalCode).Line()
-			additionalStatements.Id("_req").Op(".").Id("URL").Op(".").Id("Query").Call().Op(".").Id("Set").Call(jen.Lit(p.Name), jen.String().Call(jen.Id(dataName))).Line()
+			additionalStatements.Id("_q").Op(".").Id("Set").Call(jen.Lit(p.Name), jen.String().Call(jen.Id(dataName))).Line()
+
 		}
 
 		params = append(params, argCode)

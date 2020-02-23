@@ -139,7 +139,11 @@ func {{ .FuncName }}({{ .Parameters }}) (*{{ .HTTPRequest }}, error) {
 		return nil, _err
 	}
 
+	_q := _req.URL.Query()
+
 	{{ .AdditionalStatements }}
+
+	_req.URL.RawQuery = _q.Encode()
 
 	return _req, nil
 }`[1:]
