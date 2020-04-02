@@ -741,6 +741,20 @@ func (e *Echo) generateExtractParam(ctx context.Context, param *spec.Parameter, 
 				return nil, err
 			}
 			paramC.Add(c).Line().Line()
+		case spec.VariantStruct:
+			for field, fieldSchema := range param.Schema.Children.GetMap() {
+				c, err := gen.PrimitiveFromString(
+					fieldSchema,
+					fieldSchema.ShouldBePtr() && !fieldSchema.CanBeNil() || fieldSchema.Nullable,
+					jen.Id(param.Name).Dot(field),
+					jen.Id("c").Dot("QueryParam").Call(jen.Lit(fieldSchema.FieldName)),
+				)
+				if err != nil {
+					return nil, err
+				}
+				paramC.Add(c).Line().Line()
+			}
+
 		case spec.VariantArray:
 			c, err := gen.PrimitiveFromString(
 				param.Schema.Children.GetSchema(),
